@@ -31,9 +31,9 @@ func main() {
 	srv := authorizeCalendar()
 	t := time.Now().Format(time.RFC3339)
 	fmt.Println(srv, t)
-	_, err := srv.Events.List("primary").ShowDeleted(false).
-		SingleEvents(true).TimeMin(t).MaxResults(10).OrderBy("startTime").Do()
-	fmt.Println(err)
+	// _, err := srv.Events.List("primary").ShowDeleted(false).
+	// 	SingleEvents(true).TimeMin(t).MaxResults(10).OrderBy("startTime").Do()
+	// fmt.Println(err)
 	// if err != nil {
 	// 	log.Fatalf("Unable to retrieve next ten of the user's events: %v", err)
 	// }
