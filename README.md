@@ -2,6 +2,8 @@
 
 A simple menubar app that lists upcoming meetings and allows you to open Zoom with ease. 🤝 📹
 
+![Screenshot](images/screenshot.png)
+
 ## Overview
 
 There's a few things necessary to get this working:
@@ -33,3 +35,8 @@ Only the next 10 meetings are shown.
 - [ ] Crashes if you click on the icon before the calendar syncs
 - [ ] Formatting needs some prettification on the menu
 - [ ] Needs a proper downloadable app and Google app
+
+## Features to add
+
+- [ ] Show dates/days in addition to times
+- [ ] Option to just open Zoom for you...why wait! (ala [@ConnorPM](https://twitter.com/ConnorPM/status/1250473781707132928?s=20))
