@@ -10,16 +10,26 @@ There's a few things necessary to get this working:
 - Menubar app
 - Zoom Opener
 
-## OK...
+## Status
 
-Let's try and do #2 and #3, that should be easy enough.
+🔥 Under active development 🔥
 
-## Sweet!
+This works! But you need to create your own app as documented [here](https://developers.google.com/calendar/quickstart/go).
 
-That works, now for google calendar?
+Once that's done, build and run the app: `go build && ./zoomit`
 
-Follow along on https://developers.google.com/calendar/quickstart/go
+Open the URL printed to the console and follow the instructions. 
 
-Copy `credentials.json` to local dir and run the test code.
+The app will unfortunately crash after you paste the token back in, but just run `./zoomit` again.
 
-Almost works, but we get a core dump when we try to fetch calendar events. :(
+It will sync with Google Calendar every hour and if any of your meeting locations match "zoom.us/j/<ZOOM_ID>",
+you'll be able to expand that entry and click on the Zoom link!
+
+Only the next 10 meetings are shown.
+
+## Known Issues
+
+- [ ] Crashes the first time you authenticate
+- [ ] Crashes if you click on the icon before the calendar syncs
+- [ ] Formatting needs some prettification on the menu
+- [ ] Needs a proper downloadable app and Google app
