@@ -40,3 +40,11 @@ Only the next 10 meetings are shown.
 
 - [ ] Show dates/days in addition to times
 - [ ] Option to just open Zoom for you...why wait! (ala [@ConnorPM](https://twitter.com/ConnorPM/status/1250473781707132928?s=20))
+
+## References
+
+https://github.com/golang/oauth2/blob/master/google/example_test.go
+https://github.com/golang/go/blob/1abf3aa55bb8b346bb1575ac8db5022f215df65a/src/net/http/server.go#L2783
+https://developers.google.com/calendar/quickstart/go
+https://martinfowler.com/articles/command-line-google.html
+https://developers.google.com/identity/protocols/oauth2/native-app#custom-uri-scheme
