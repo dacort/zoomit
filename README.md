@@ -31,10 +31,11 @@ Only the next 10 meetings are shown.
 
 ## Known Issues
 
-- [ ] Crashes the first time you authenticate
-- [ ] Crashes if you click on the icon before the calendar syncs
-- [ ] Formatting needs some prettification on the menu
+- [x] Crashes the first time you authenticate
+- [x] Crashes if you click on the icon before the calendar syncs
+- [x] Formatting needs some prettification on the menu
 - [ ] Needs a proper downloadable app and Google app
+- [ ] App must be validated: https://support.google.com/cloud/answer/7454865
 
 ## Features to add
 

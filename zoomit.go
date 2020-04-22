@@ -2,10 +2,14 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
+	"log/syslog"
+	"os"
 	"os/exec"
 	"regexp"
 	"runtime"
+	"strings"
 	"time"
 
 	"github.com/caseymrm/menuet"
@@ -20,14 +24,30 @@ var reZoomURL = regexp.MustCompile(`zoom.us/j/(\d+)$`)
 func menuItems() []menuet.MenuItem {
 	items := []menuet.MenuItem{}
 
+	// We may not have synced the calendar items yet
+	if nextTenEvents == nil {
+		return append(items, menuet.MenuItem{
+			Text: "Syncing...",
+		})
+	}
+
+	var date string
 	for _, event := range nextTenEvents.Items {
-		// date := event.Start.DateTime
-		// if date == "" {
-		// 	date = event.Start.Date
-		// }
 		ts, _ := time.Parse(time.RFC3339, event.Start.DateTime)
+		// Handle all-day events
+		if fmt.Sprintf("%s", event.Start.DateTime) == "" {
+			ts, _ = time.Parse("2006-01-02", event.Start.Date)
+		}
+		td := ts.Format("Monday")
+		if td != date {
+			items = append(items, menuet.MenuItem{
+				Text:     strings.ToUpper(td),
+				FontSize: 10,
+			})
+			date = td
+		}
 		items = append(items, menuet.MenuItem{
-			Text:     fmt.Sprintf("%-15s %s", ts.Format("3:04 PM"), event.Summary),
+			Text:     fmt.Sprintf("  %-15s %s", ts.Format("03:04 PM"), event.Summary),
 			Children: zoomer(event.Location),
 		})
 	}
@@ -99,4 +119,10 @@ func main() {
 // https://github.com/golang/go/wiki/LockOSThread
 func init() {
 	runtime.LockOSThread()
+
+	// While we're here, set up logging!
+	logwriter, e := syslog.New(syslog.LOG_NOTICE, "zoomit")
+	if e == nil {
+		log.SetOutput(io.MultiWriter(logwriter, os.Stdout))
+	}
 }
