@@ -1,4 +1,7 @@
-# Zoom It!
+# LaZ Click
+
+_la·zy_ **|** _/ˈlāzē/ - unwilling to work or use energy._
+_LaZ Click - The act of saving yourself from the process of "alt-tab to browser –> find calendar tab –> open meeting –> click zoom link –> click 'open zoom button' –> die inside"_
 
 A simple menubar app that lists upcoming meetings and allows you to open Zoom with ease. 🤝 📹
 
@@ -6,26 +9,15 @@ A simple menubar app that lists upcoming meetings and allows you to open Zoom wi
 
 ## Overview
 
-There's a few things necessary to get this working:
-
-- Authentication with calendar service
-- Menubar app
-- Zoom Opener
+- Launch the app
+- Grant access to your Google Calendar
+- Zoom away 💨
 
 ## Status
 
 🔥 Under active development 🔥
 
-This works! But you need to create your own app as documented [here](https://developers.google.com/calendar/quickstart/go).
-
-Once that's done, build and run the app: `go build && ./zoomit`
-
-Open the URL printed to the console and follow the instructions. 
-
-The app will unfortunately crash after you paste the token back in, but just run `./zoomit` again.
-
-It will sync with Google Calendar every hour and if any of your meeting locations match "zoom.us/j/<ZOOM_ID>",
-you'll be able to expand that entry and click on the Zoom link!
+It will sync with Google Calendar every minute and if any of your meeting locations match "zoom.us/j/<ZOOM_ID>", you'll be able to expand that entry and click on the Zoom link!
 
 Only the next 10 meetings are shown.
 
