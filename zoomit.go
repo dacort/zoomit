@@ -84,7 +84,8 @@ func calendarSync(srv *calendar.Service) {
 		events, err := srv.Events.List("primary").ShowDeleted(false).
 			SingleEvents(true).TimeMin(t).MaxResults(10).OrderBy("startTime").Do()
 		if err != nil {
-			log.Fatalf("Unable to retrieve next ten of the user's events: %v", err)
+			log.Printf("WARN: Unable to retrieve next ten of the user's events: %v", err)
+			return
 		}
 		nextTenEvents = events
 		if len(events.Items) == 0 {

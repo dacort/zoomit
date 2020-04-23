@@ -1,6 +1,7 @@
 # LaZ Click
 
 _la·zy_ **|** _/ˈlāzē/ - unwilling to work or use energy._
+
 _LaZ Click - The act of saving yourself from the process of "alt-tab to browser –> find calendar tab –> open meeting –> click zoom link –> click 'open zoom button' –> die inside"_
 
 A simple menubar app that lists upcoming meetings and allows you to open Zoom with ease. 🤝 📹
