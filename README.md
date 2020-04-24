@@ -18,9 +18,12 @@ A simple menubar app that lists upcoming meetings and allows you to open Zoom wi
 
 🔥 Under active development 🔥
 
+> Prerelease available now: [LaZ.zip](https://github.com/dacort/zoomit/releases)
+> _Only compatible with macOS Catalina_
+
 It will sync with Google Calendar every minute and if any of your meeting locations match "zoom.us/j/<ZOOM_ID>", you'll be able to expand that entry and click on the Zoom link!
 
-Only the next 10 meetings are shown.
+Shows your next 10 meetings.
 
 ## Known Issues
 
@@ -32,7 +35,7 @@ Only the next 10 meetings are shown.
 
 ## Features to add
 
-- [ ] Show dates/days in addition to times
+- [x] Show dates/days in addition to times
 - [ ] Option to just open Zoom for you...why wait! (ala [@ConnorPM](https://twitter.com/ConnorPM/status/1250473781707132928?s=20))
 
 ## References
