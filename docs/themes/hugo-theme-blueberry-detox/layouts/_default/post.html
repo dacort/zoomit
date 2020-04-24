@@ -1,0 +1,36 @@
+<article class="{{ .Type }}">
+	<header class="post-header">
+        <h3 class="p-post-title">{{ .Title }}</h3>
+    </header>
+
+    <section class="post-content">
+        {{ .Content }}
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            {{ if isset .Params "author" }}
+            <section class="author">
+                <p>Words by {{ index .Params "author" }}</p>
+            </section>
+            {{ else if isset .Site.Params "author" }}
+            <section class="author">
+                <p>Words by {{ index .Site.Params "author" }}</p>
+            </section>
+            {{ end }}
+            
+            <p class="f-post-time"><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
+        </section>
+                        
+        <section class="f-2">
+
+            {{ with .Params.tags }}
+            	<span class="f-post-tags"><i class="fa fa-tag"></i>
+            	{{ delimit  . ", " }}
+            	</span>
+            {{ end }}
+        </section>   
+    </footer>
+</article>

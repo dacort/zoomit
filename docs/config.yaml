@@ -1,0 +1,6 @@
+baseURL: https://example.com
+languageCode: en-us
+title: La·Z
+theme: hugo-theme-blueberry-detox
+params:
+    twitter_name: dacort
