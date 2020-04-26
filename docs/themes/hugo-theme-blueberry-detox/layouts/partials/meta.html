@@ -11,8 +11,8 @@
   {{ end }}
 	{{ with .Site.Params.twitter_name }}
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:site" content="@https://twitter.com/{{ . }}">
-        <meta name="twitter:creator" content="@https://twitter.com/{{ . }}">
+        <meta name="twitter:site" content="@{{ . }}">
+        <meta name="twitter:creator" content="@{{ . }}">
         <meta name="twitter:domain" content="{{ $.Site.BaseURL }}">
 	{{ end }}
         <meta property="og:site_name" content="{{ .Site.Title }}">

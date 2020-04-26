@@ -6,3 +6,4 @@ params:
     twitter_name: dacort
     description: "macOS menubar app that opens Zoom meetings in a single click"
     title: La·Z Click
+    images: ["images/calendar.png"]
