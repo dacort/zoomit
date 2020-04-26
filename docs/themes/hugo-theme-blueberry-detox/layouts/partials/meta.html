@@ -19,6 +19,9 @@
         <meta property="og:title" content="{{ .Site.Title }}">
         <meta property="og:url" content="{{ .Permalink }}">
         <meta property="og:description" content="{{ .Site.Params.description }}">
+        {{ with .Site.Params.Images }}
+        <meta property="og:image" content="{{ index . 0 | absURL }}"/>
+        {{ end }}
     {{ if .IsPage }}
         <meta property="og:type" content="article" />
         <meta property="og:article:author" content="{{ .Site.Params.author }}" />
