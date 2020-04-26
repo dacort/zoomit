@@ -3,26 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/terms/</loc>
+    <loc>https://laz.click/terms/</loc>
     <lastmod>2020-04-23T22:09:10-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/privacy/</loc>
+    <loc>https://laz.click/privacy/</loc>
     <lastmod>2020-04-23T22:01:46-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>https://laz.click/</loc>
     <lastmod>2020-04-22T22:49:45-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://laz.click/categories/</loc>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>https://laz.click/tags/</loc>
   </url>
   
 </urlset>
