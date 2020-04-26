@@ -14,7 +14,11 @@
         <meta name="twitter:site" content="@{{ . }}">
         <meta name="twitter:creator" content="@{{ . }}">
         <meta name="twitter:domain" content="{{ $.Site.BaseURL }}">
-	{{ end }}
+    {{ end }}
+    {{ with .Site.Params.Images }}
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
+    {{ end }}
         <meta property="og:site_name" content="{{ .Site.Title }}">
         <meta property="og:title" content="{{ .Site.Title }}">
         <meta property="og:url" content="{{ .Permalink }}">
