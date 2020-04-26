@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+defaults:
+  run:
+    working-directory: docs
+
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -22,7 +26,6 @@ jobs:
 
       - name: Build
         run: hugo --minify -d ../public/
-            working-directory: ./docs/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
