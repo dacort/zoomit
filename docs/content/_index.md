@@ -2,7 +2,6 @@
 title: "LaZ Click"
 header: "la·zy | /ˈlāzē/ - unwilling to work or use energy."
 date: 2020-04-22T22:49:45-07:00
-draft: true
 image: https://github.com/dacort/zoomit/raw/master/images/screenshot.png
 ---
 
