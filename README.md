@@ -45,3 +45,4 @@ https://github.com/golang/go/blob/1abf3aa55bb8b346bb1575ac8db5022f215df65a/src/n
 https://developers.google.com/calendar/quickstart/go
 https://martinfowler.com/articles/command-line-google.html
 https://developers.google.com/identity/protocols/oauth2/native-app#custom-uri-scheme
+https://github.com/duo-labs/EFIgy-GUI/blob/5cc1c863119ceb54dfd33c15b4681cabb42d9da0/Makefile#L26

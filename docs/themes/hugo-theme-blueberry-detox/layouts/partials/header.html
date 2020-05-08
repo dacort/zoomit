@@ -1,5 +1,6 @@
     <header id="site-header">
         <div class="container">
+            {{ with .Site.Params.Images }} <img src="{{ index . 0 | absURL }}" width=40 height=40 /> {{ end }}
             <a href="{{ .Site.BaseURL }}" alt="{{ .Site.Title }}"><h1 class="blog-title heading">{{ .Site.Title }}</h1></a>
             <p class="blog-description">{{ .Site.Params.description }}</p>
         </div>

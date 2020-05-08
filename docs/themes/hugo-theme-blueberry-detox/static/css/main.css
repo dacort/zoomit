@@ -764,6 +764,9 @@ hr {
     margin-bottom: 4em !important;
   }
 }
+#site-header img {
+  display: inline;
+}
 .blog-title {
   text-transform: uppercase;
   letter-spacing: 6px;
