@@ -16,18 +16,19 @@ func noMenuItems() []menuet.MenuItem {
 }
 
 func fakeMenuItems() []menuet.MenuItem {
+	fakeZoom := &ZoomMeeting{"https://zoom.us/j/12345678", "zoommtg://zoom.us/join?confno=12345678"}
 	return []menuet.MenuItem{
 		{
 			Text:     fmt.Sprintf("%-15s%s", "1:00 PM", "Do some stuff"),
-			Children: zoomer(""),
+			Children: zoomDetails(nil),
 		},
 		{
 			Text:     fmt.Sprintf("%-15s%s", "1:30 PM", "Important meeting"),
-			Children: zoomer("https://zoom.us/j/12345678"),
+			Children: zoomDetails(fakeZoom),
 		},
 		{
 			Text:     fmt.Sprintf("%-15s%s", "3:00 PM", "Keyboard Cat 🐈"),
-			Children: zoomer("https://zoom.us/j/12345678"),
+			Children: zoomDetails(fakeZoom),
 		},
 	}
 }

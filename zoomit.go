@@ -18,8 +18,14 @@ import (
 
 var nextTenEvents *calendar.Events
 
+// ZoomMeeting contains the original Zoom URL as well as the
+type ZoomMeeting struct {
+	originalURL string // The original URL extract from the event
+	clientURL   string // The `zoomus:` client protocol ( https://medium.com/zoom-developer-blog/zoom-url-schemes-748b95fd9205 )
+}
+
 // Example Zoom URL: https://zoom.us/j/930721398
-var reZoomURL = regexp.MustCompile(`zoom.us/j/(\d+)$`)
+var reZoomURL = regexp.MustCompile(`zoom.us/j/(\d+)(\?.+)?$`)
 
 func menuItems() []menuet.MenuItem {
 	items := []menuet.MenuItem{}
@@ -46,29 +52,71 @@ func menuItems() []menuet.MenuItem {
 			})
 			date = td
 		}
-		items = append(items, menuet.MenuItem{
+		zm := findZoomURLInEvent(event)
+		menuItem := menuet.MenuItem{
 			Text:     fmt.Sprintf("  %-15s %s", ts.Format("03:04 PM"), event.Summary),
-			Children: zoomer(event.Location),
-		})
+			Children: zoomDetails(zm),
+		}
+		if zm != nil {
+			menuItem.Clicked = func() {
+				exec.Command("open", zm.clientURL).Run()
+			}
+		}
+		items = append(items, menuItem)
 	}
 
 	return items
 }
 
-func zoomer(zoomURL string) func() []menuet.MenuItem {
+func extractZoomURL(zoomURL string) *ZoomMeeting {
 	zoomMatch := reZoomURL.FindStringSubmatch(zoomURL)
 	if zoomURL == "" || len(zoomMatch) == 0 {
 		return nil
 	}
 
-	zoomScheme := fmt.Sprintf("zoommtg://zoom.us/join?confno=%s", zoomMatch[1])
+	clientURL := fmt.Sprintf("zoommtg://zoom.us/join?confno=%s", zoomMatch[1])
+
+	// If we also get any parameters, append those to the URL trimming the leading `?`
+	if zoomMatch[2] != "" {
+		clientURL += "&" + zoomMatch[2][1:]
+	}
+
+	return &ZoomMeeting{zoomURL, clientURL}
+}
+
+func findZoomURLInEvent(e *calendar.Event) *ZoomMeeting {
+	// First we check the event location
+	zoomLocationURL := extractZoomURL(e.Location)
+
+	// Then we check the event "Conference" data
+	var zoomConferenceURL *ZoomMeeting
+	if e.ConferenceData != nil {
+		for _, entry := range e.ConferenceData.EntryPoints {
+			if entry.EntryPointType == "video" {
+				zoomConferenceURL = extractZoomURL(entry.Uri)
+			}
+		}
+	}
+
+	// If both exist, we default to the Conference data because it was likely computer generated and more accurate(?)
+	if zoomConferenceURL != nil {
+		return zoomConferenceURL
+	}
+
+	return zoomLocationURL
+}
+
+func zoomDetails(z *ZoomMeeting) func() []menuet.MenuItem {
+	if z == nil {
+		return nil
+	}
 
 	return func() []menuet.MenuItem {
 		return []menuet.MenuItem{
 			{
-				Text: zoomURL,
+				Text: z.originalURL,
 				Clicked: func() {
-					exec.Command("open", zoomScheme).Run()
+					exec.Command("open", z.clientURL).Run()
 				},
 			},
 		}
