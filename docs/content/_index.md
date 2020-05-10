@@ -13,4 +13,4 @@ _La·Z Click_ - The act of saving yourself from the process of "alt-tab to brows
 - Opens Zoom meetings with a single click
 - That's it 🤷‍♀
 
-{{< imglink "https://github.com/dacort/zoomit/releases/download/v0.0.1/LaZ.zip" "mac-download.png" >}}
+{{< imglink "https://github.com/dacort/zoomit/releases/download/v0.2.0/LaZ.zip" "mac-download.png" >}}
