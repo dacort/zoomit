@@ -133,7 +133,7 @@ func calendarSync(srv *calendar.Service) {
 			SingleEvents(true).TimeMin(t).MaxResults(10).OrderBy("startTime").Do()
 		if err != nil {
 			log.Printf("WARN: Unable to retrieve next ten of the user's events: %v", err)
-			return
+			continue
 		}
 		nextTenEvents = events
 		if len(events.Items) == 0 {
@@ -147,6 +147,9 @@ func calendarSync(srv *calendar.Service) {
 
 func main() {
 	log.Println("👋 Booting up...")
+
+	// This should be optional, but run it by default
+	// go monitor()
 
 	// Ensure that we've authenticated
 	// If you just want to play around, uncomment these next few lines and replace
